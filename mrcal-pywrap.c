@@ -4443,7 +4443,7 @@ static PyMethodDef methods[] =
 static bool _init_mrcal_common(PyObject* module)
 {
     Py_INCREF(&CHOLMOD_factorization_type);
-    if(0 != PyModule_Add(module,
+    if(0 != _PyModule_Add(module,
                          "CHOLMOD_factorization",
                          (PyObject *)&CHOLMOD_factorization_type))
     {
@@ -4493,7 +4493,7 @@ static bool _init_mrcal_common(PyObject* module)
     }
 
     Py_DECREF(optimization_inputs_known_keys_tuple);
-    if(0 != PyModule_Add(module,
+    if(0 != _PyModule_Add(module,
                          "_optimization_inputs_known_keys",
                          (PyObject *)_optimization_inputs_known_keys_frozenset))
     {

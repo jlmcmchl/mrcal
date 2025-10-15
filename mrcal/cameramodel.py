@@ -1865,7 +1865,7 @@ The optimization_inputs dict, or None if one isn't stored in this model.
         if self._optimization_inputs_string is None:
             return None
         x = _deserialize_optimization_inputs(self._optimization_inputs_string)
-        if x['rt_cam_ref'] is None:
+        if 'rt_cam_ref' not in x or x['rt_cam_ref'] is None:
             x['rt_cam_ref'] = np.zeros((0,6), dtype=float)
         x['verbose'] = False
         return x
